@@ -1,6 +1,6 @@
 const http = require('http')
-const path = require('path')
-const fs = require('fs')
+const path = require('./path')
+const fs = require('./fs')
 
 
 const server = http.createServer((request, response) => {
@@ -18,4 +18,4 @@ const server = http.createServer((request, response) => {
 server.listen(9999, () => console.log('Servern körs på http://localhost:9999'));
 
 
-console.log(path.dirname(__filename));
+// console.log(path.dirname(__filename));

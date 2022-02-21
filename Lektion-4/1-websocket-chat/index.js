@@ -2,9 +2,9 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const socket = require('socket.io');
-const { userConnect, userDisconnect } = require('./public/users');
+// const { userConnect, userDisconnect } = require('./public/users');
 
-const { userConnect } = require('/users')
+const { userConnect, userDisconnect } = require('./users')
 
 
 const app = express();
