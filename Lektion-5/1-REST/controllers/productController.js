@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const productModel = require('../models/products/productModel');
+const auth = require('../authentication/auth');
 
 // Get all products
 router.get('/', productModel.getProducts);
@@ -8,7 +9,7 @@ router.get('/', productModel.getProducts);
 router.get('/:id', productModel.getProductById);
 
 // Create new product
-router.post('/', productModel.createProduct);
+router.post('/', auth.verifyToken, productModel.createProduct);
 
 // Update product
 router.patch('/:id', productModel.updateProduct);
