@@ -1,5 +1,56 @@
 const Product = require('./productSchema');
 
+exports.getProducts = async (req, res) => {
+
+    try {
+        const data = await Product.find()
+        res.status(200).json(data)
+    }
+    catch (err) {
+        res.status(500).json({
+            statusCode: 500,
+            status: false,
+            message: 'Something went wrong when fetching the products',
+            err
+        })
+    }
+
+}
+
+exports.getProductById = (req, res) => {
+
+    Product.exists({ _id: req.params.id }, (err, product) => {
+
+        if(err) {
+            return res.status(400).json({
+                statusCode: 400,
+                status: false,
+                message: 'You made a bad request',
+            })
+        }
+
+        if(!product) {
+            return res.status(404).json({
+                statusCode: 4004,
+                status: false,
+                message: 'Oops, this product does not exist',
+            })
+        }
+
+        // Product.findOne({ _id: req.params.id})
+        Product.findById(req.params.id)
+            .then(data => res.status(200).json(data))
+            .catch(err => {
+                res.status(500).json({
+                    statusCode: 500,
+                    status: false,
+                    message: err.message || 'Internal server error',
+                })
+            })
+
+    })
+
+}
 
 
 
@@ -51,4 +102,43 @@ exports.createProduct = (req, res) => {
     })
     
 
+}
+
+exports.deleteProduct = (req, res) => {
+
+    Product.exists({ _id: req.params.id }, (err, result) => {
+
+        if(err) {
+            return res.status(400).json({
+                statusCode: 400,
+                status: false,
+                message: 'You made a bad request',
+            })
+        }
+
+        if(!result) {
+            return res.status(404).json({
+                statusCode: 404,
+                status: false,
+                message: 'Oops, this product does not exist',
+                })
+            }
+
+        Product.deleteOne({ _id: req.params.id})
+            .then(() => {
+                res.status(200).json({
+                    statusCode: 200,
+                    status: true,
+                    message: 'Product deleted',
+                })
+            })
+            .catch(err => {
+                res.status(500).json({
+                    statusCode: 500,
+                    status: false,
+                    message: 'Failed to delete product',
+                    err
+                })
+            })
+    })
 }
