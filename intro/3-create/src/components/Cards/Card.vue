@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <div class="card h-100">
-      <img v-bind:src="imgURL" class="card-img-top" alt="...">
+      <img :src='imgURL' class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ title }}</h5>
         <p class="card-text">{{ body }}</p>
@@ -14,24 +14,23 @@
 <script>
 export default {
     name: 'CardComponent',
-    props: {
-        title: {
-        type: String,
-        required: false,
-        default: 'En standard rubrik'
-        }
-    },
-    body: {
-        type: String,
-        required: false,
-        default: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem, ratione?'
-    },
-    imgURL: {
-        type: String,
-        required: false,
-        default: ''
+      props: {
+          title: {
+          type: String,
+          required: false,
+          default: 'En standard rubrik'
+          },
+      
+      body: {
+          type: String,
+          default: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem, ratione?'
+      },
+      imgURL: {
+          type: String,
+          required: false,
+          default: ''
+      }
     }
-    
 }
 </script>
 

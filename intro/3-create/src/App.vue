@@ -4,7 +4,9 @@
 
 
   <div class="container">
-    <Card-deck class="mt-5"/>
+    <div class="hej">Hej i App</div>
+
+    <CardDeck class="mt-5"/>
   </div>
 
 </template>
@@ -20,5 +22,7 @@ export default {
 </script>
 
 <style>
-
+  .hej {
+    color: blue;
+  }
 </style>
