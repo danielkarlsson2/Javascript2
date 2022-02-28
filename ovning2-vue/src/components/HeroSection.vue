@@ -9,9 +9,7 @@
         <div class="text-white img-section align-items-baseline">
           <!-- <h1 class="mb-3">Heading</h1> -->
           <!-- <h4 class="mb-3">Subheading</h4> -->
-          <a class="btn btn-outline-light btn-lg knapp" href="#!" role="button" @click="clickFunction"
-          >To the choper</a
-          >
+          <a class="btn btn-outline-light btn-lg knapp" href="#!" role="button" @click="clickFunction">To the chopper</a>
         </div>
       </div>
     </div>
@@ -31,7 +29,7 @@ export default {
 
 <style>
 .bg-image {
-    height: 550px;
+    height: 700px;
     background-color: black;
     background-size: contain;
     top: 0;
