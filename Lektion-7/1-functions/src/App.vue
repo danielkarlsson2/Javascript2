@@ -4,6 +4,12 @@
     <div class="container output">
       <h2>{{ message }}</h2>
 
+      <Functions class="mt-5" />
+
+      <TextInput class="mt-5"/>
+
+      <Computed class="mt-5" />
+
     </div>
     <Footer msg="message"/>
     <Footer v-bind:msg="message"/>
@@ -13,11 +19,18 @@
 
 <script>
 import Navbar from './components/Navbar.vue'
+import Functions from './components/Functions.vue'
 import Footer from './components/Footer.vue'
+import TextInput from './components/TextInput.vue'
+import Computed from './components/Computed.vue'
+
 export default {
   components: {
     Navbar,
-    Footer
+    Footer,
+    Functions,
+    TextInput,
+    Computed
   },
   data() {
     return {
@@ -40,6 +53,9 @@ export default {
 }
 .output {
   min-height: 500px;
+}
+.mt-5 {
+  margin-top: 5rem;
 }
 
 </style>
