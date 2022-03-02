@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Navbar :user="user" />
+    <Navbar :user="user" @logut="user = null" />
+    <LoginForm @login="handleLogin" :user="user"/>
   </div>
-  <login-form />
 </template>
 
 <script>
@@ -18,8 +18,14 @@ export default {
   },
   data() {
     return {
-      user: {}
+      user: null
     }
+  },
+  methods: {
+    handleLogin(newUser) {
+      this.user = {...newUser }
+  }
+
   }
 }
 </script>
