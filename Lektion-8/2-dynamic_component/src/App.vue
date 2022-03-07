@@ -47,9 +47,10 @@ export default {
         'btn-outline-primary': !this.isLogin
       }
     },
-    registerClasses() {
+    registerClasses(){
       return {
-        // 'btn-'
+        'btn-primary': !this.isLogin,
+        'btn-outline-primary': this.isLogin
       }
     }
   }
