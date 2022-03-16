@@ -3,6 +3,7 @@
       <div class="img-container">
           <img :src="post.imgUrl" alt="">
       </div>
+      
       <h2>{{post.title}}</h2>
   </div>
 </template>

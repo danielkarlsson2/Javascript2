@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar container">
       <h1 class="brand">Daniels Blog</h1>
-        <form @submit.prevenet="handleSubmit">
+        <form @submit.prevent="handleSubmit">
             <input type="search" class="form-control" placeholder="Search" v-model="searchQuery">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>

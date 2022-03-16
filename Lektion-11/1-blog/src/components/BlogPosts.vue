@@ -7,7 +7,7 @@
           <h2 class="content_title">{{ post.title }}</h2>
           <div class="content_info">
               <ul class="content_list">
-                  <li v-for="(cat, index) in post.categories" :key="index">{{ cat }}</li>    
+                  <li v-for="(cat, index) in post.categories" :key="index" @click="search(cat)">{{ cat }}</li>    
               </ul>
               <p>Author: {{ post.author }}</p>
           </div>
@@ -21,7 +21,12 @@
 
 <script>
 export default {
-    prop: ['post']
+    prop: ['post'],
+    methods: {
+        search(query) {
+            this.$router.push({ name: 'search', query: { searchQuery: search } })
+        }
+    }
 }
 </script>
 
