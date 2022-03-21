@@ -1,7 +1,6 @@
 import { createStore } from 'vuex'
-import blog from './modules/blog'
-import post from './modules/post'
-import users from './modules/users'
+import products from './modules/products'
+import cart from './modules/cart'
 
 export default createStore({
   state: {
@@ -13,8 +12,7 @@ export default createStore({
   actions: {
   },
   modules: {
-    blog,
-    post,
-    users,
+    products,
+    cart
   }
 })
