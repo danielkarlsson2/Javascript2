@@ -1,7 +1,7 @@
 <template>
   <div class="posts-list">
       <div v-for="post in posts" :key="post.id">
-          <SinglePost :post="post"/>
+          <SinglePost :post="post" @removePost="remove"/>
       </div>
   </div>
 </template>
@@ -9,10 +9,15 @@
 <script>
 import SinglePost from './SinglePost.vue'
 export default {
-  components: { 
+    props: ['post'],
+    components: { 
     SinglePost 
     },
-    props: ['post']
+    setup() {
+        const remove = () => {
+            console.log('tar bort en post')
+        }
+    }
 }
 </script>
 
